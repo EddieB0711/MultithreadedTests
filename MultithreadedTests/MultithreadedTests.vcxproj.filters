@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="bounded_iterations.cpp">
+      <Filter>bounded_iterations</Filter>
+    </ClCompile>
+    <ClCompile Include="file_builder.cpp">
+      <Filter>file_builder</Filter>
+    </ClCompile>
+    <ClCompile Include="log_pool_thread_results.cpp">
+      <Filter>result_loggers\concrete\pool_threading</Filter>
+    </ClCompile>
+    <ClCompile Include="pool_thread_tests.cpp">
+      <Filter>test_threads\concrete\pool_threading</Filter>
+    </ClCompile>
+    <ClCompile Include="environment_handle.cpp">
+      <Filter>multi_threaded_handles</Filter>
+    </ClCompile>
+    <ClCompile Include="thread_environment.cpp">
+      <Filter>multi_threaded_handles</Filter>
+    </ClCompile>
+    <ClCompile Include="event_handel.cpp">
+      <Filter>multi_threaded_handles</Filter>
+    </ClCompile>
+    <ClCompile Include="muti_thread_test_utils.cpp">
+      <Filter>multi_thread_test_utils</Filter>
+    </ClCompile>
+    <ClCompile Include="multi_threaded_work.cpp">
+      <Filter>multi_threaded_work</Filter>
+    </ClCompile>
+    <ClCompile Include="thread_class_tests.cpp">
+      <Filter>test_threads\concrete\thread_class</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Trace.h" />
+    <ClInclude Include="time_something.h" />
+    <ClInclude Include="bounded_iterations.h">
+      <Filter>bounded_iterations</Filter>
+    </ClInclude>
+    <ClInclude Include="environment_handle.h">
+      <Filter>multi_threaded_handles</Filter>
+    </ClInclude>
+    <ClInclude Include="event_handle.h">
+      <Filter>multi_threaded_handles</Filter>
+    </ClInclude>
+    <ClInclude Include="handle_traits.h">
+      <Filter>multi_threaded_handles</Filter>
+    </ClInclude>
+    <ClInclude Include="thread_environment.h">
+      <Filter>multi_threaded_handles</Filter>
+    </ClInclude>
+    <ClInclude Include="unique_handle.h">
+      <Filter>multi_threaded_handles</Filter>
+    </ClInclude>
+    <ClInclude Include="file_builder.h">
+      <Filter>file_builder</Filter>
+    </ClInclude>
+    <ClInclude Include="i_log_results.h">
+      <Filter>result_loggers\abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="p_log_results.h">
+      <Filter>result_loggers\abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="log_pool_thread_results.h">
+      <Filter>result_loggers\concrete\pool_threading</Filter>
+    </ClInclude>
+    <ClInclude Include="i_test_threads.h">
+      <Filter>test_threads\abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="p_test_threads.h">
+      <Filter>test_threads\abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="pool_thread_tests.h">
+      <Filter>test_threads\concrete\pool_threading</Filter>
+    </ClInclude>
+    <ClInclude Include="multi_thread_test_utils.h">
+      <Filter>multi_thread_test_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="multi_threaded_work.h">
+      <Filter>multi_threaded_work</Filter>
+    </ClInclude>
+    <ClInclude Include="thread_class_tests.h">
+      <Filter>test_threads\concrete\thread_class</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="bounded_iterations">
+      <UniqueIdentifier>{57b8674f-e1ca-4b9a-a31b-ce8c9dd5ead6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="multi_threaded_handles">
+      <UniqueIdentifier>{a6333aca-b844-41db-9318-58073887d8e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="file_builder">
+      <UniqueIdentifier>{f508f5eb-3fcb-4b7d-9828-5d441b9659df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="result_loggers">
+      <UniqueIdentifier>{57ab4d19-eb12-4d96-ba4a-a3885424e33e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="result_loggers\abstract">
+      <UniqueIdentifier>{e429ae09-bb50-4e81-b582-7ed7bfdf3daa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="result_loggers\concrete">
+      <UniqueIdentifier>{5cde4352-dbb5-4fc5-9ef9-96f176db3792}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="result_loggers\concrete\pool_threading">
+      <UniqueIdentifier>{988edc1a-d5a1-40a9-b655-c927f5f90109}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test_threads">
+      <UniqueIdentifier>{875a7a20-2461-421a-998b-39479b2107b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test_threads\abstract">
+      <UniqueIdentifier>{c29d9034-62a8-472e-b788-f2e5369768ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test_threads\concrete">
+      <UniqueIdentifier>{49b0d5b1-f99a-4360-81f5-e40ebb892dab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test_threads\concrete\pool_threading">
+      <UniqueIdentifier>{493fc10a-6498-44f9-b312-63afb6c23d0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="multi_thread_test_utils">
+      <UniqueIdentifier>{58ba37e0-4552-4911-b10a-431159c56292}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="multi_threaded_work">
+      <UniqueIdentifier>{2c476844-e410-4390-937f-856f6f7c0f7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test_threads\concrete\thread_class">
+      <UniqueIdentifier>{6ad42416-630f-42e8-aa09-9313af8c3133}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
