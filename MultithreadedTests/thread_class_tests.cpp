@@ -1,19 +1,24 @@
 #include "thread_class_tests.h"
 #include "i_log_results.h"
 #include "multi_thread_test_utils.h"
-#include "time_something.h"
-#include "Trace.h"
 
 #include <thread>
 
 using namespace multi_threading;
 using namespace timing;
 
+using result_values = std::map<unsigned long long, float>;
+
 struct join_traits
 {
 	static auto close(std::thread & thread) -> void
 	{
 		if (thread.joinable()) thread.join();
+	}
+
+	static auto is_valid(std::thread const & thread) -> bool
+	{
+		return thread.joinable();
 	}
 };
 
@@ -22,6 +27,11 @@ struct detach_traits
 	static auto close(std::thread & thread) -> void
 	{
 		thread.detach();
+	}
+
+	static auto is_valid(std::thread const & thread) -> bool
+	{
+		return thread.joinable();
 	}
 };
 
@@ -49,8 +59,15 @@ public:
 		return *this;
 	}
 
-	~c_plus_plus_thread_class() { Traits::close(m_thread); } // std::thread will call terminate() if it destructs while still joinable,
-		                                                     // not entirely desirable...
+	operator bool() const noexcept
+	{
+		return !Traits::is_valid(m_thread);
+	}
+
+	~c_plus_plus_thread_class() 
+	{
+		Traits::close(m_thread); 
+	} // std::thread will call terminate() if it destructs while still joinable, not entirely desirable...
 };
 
 using joinable_thread = c_plus_plus_thread_class<join_traits>;
@@ -95,7 +112,7 @@ auto run_thread_class_test(std::vector<thread_work> & work_for_thread) -> void
 	for (auto & w : work_for_thread) threads.push_back(joinable_thread { run_thread_class_process, std::ref(w) });
 }
 
-auto run_thread_class_tests(bounded_iterations current_iterations, p_log_results const & results_logger) -> void
+auto run_thread_class_tests(bounded_iterations current_iterations, result_values & results) -> void
 {
 	auto work = std::vector<multi_threaded_work> { };
 	auto thread_count = get_optimal_threads();
@@ -113,9 +130,9 @@ auto run_thread_class_tests(bounded_iterations current_iterations, p_log_results
 
 	auto duration = time_seconds::time(run_thread_class_test, work_for_thread);
 
-	TRACE(L"run_pool_test took: %f\n", duration);
+	TRACE(L"run_thread_class_tests took: %f\n", duration);
 
-	results_logger->log_results(current_iterations.total_iterations(), { duration });
+	results.insert(result_values::value_type(current_iterations.total_iterations(), duration));
 }
 
 thread_class_tests::thread_class_tests(p_log_results const & results_logger) noexcept :
@@ -125,5 +142,9 @@ thread_class_tests::thread_class_tests(p_log_results const & results_logger) noe
 auto thread_class_tests::run_test() const -> void
 {
 	auto const & iterations = test_iterations();
-	for (auto & iter : iterations) run_thread_class_tests(create_bounded_iterations(iter), m_results_logger);
+	auto results = result_values { };
+
+	for (auto & iter : iterations) run_thread_class_tests(create_bounded_iterations(iter), results);
+
+	m_results_logger->log_results(results);
 }

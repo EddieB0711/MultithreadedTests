@@ -1,19 +1,23 @@
 #include "multi_thread_test_utils.h"
-#include "p_test_threads.h"
 
-#include "pool_thread_tests.h"
-#include "log_pool_thread_results.h"
+#include "test_thread_factory.h"
+#include "i_test_threads.h"
 
-#include "thread_class_tests.h"
+auto create_tests() -> std::vector<p_test_threads>
+{
+	auto thread_factory = std::make_shared<test_thread_factory>();
+
+	return std::vector<p_test_threads>
+	{
+		//thread_factory->create_thread_test(test_thread_type::pool_thread),
+		//thread_factory->create_thread_test(test_thread_type::thread_class),
+		thread_factory->create_thread_test(test_thread_type::compare_with_contention)
+	};
+}
 
 auto main() -> int
 {
-	auto tests = std::vector<p_test_threads>
-	{
-		make<pool_thread_tests>(make<log_pool_thread_results>("thread-pool-results.txt")),
-		make<thread_class_tests>(make<log_pool_thread_results>("thread-class-results.txt"))
-	};
-
+	auto const & tests = create_tests();
 	for (auto const & test : tests) test->run_test();
 
 	getchar();
