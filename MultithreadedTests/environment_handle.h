@@ -1,7 +1,5 @@
 #pragma once
 
-#include <Windows.h>
-
 namespace multi_threading
 {
 	class environment_handle
@@ -18,6 +16,6 @@ namespace multi_threading
 
 		~environment_handle() noexcept;
 
-		auto get() noexcept->PTP_CALLBACK_ENVIRON;
+		auto get() noexcept -> PTP_CALLBACK_ENVIRON;
 	};
 }

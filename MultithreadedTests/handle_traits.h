@@ -1,7 +1,5 @@
 #pragma once
 
-#include <windows.h>
-
 namespace multi_threading
 {
 	struct null_traits

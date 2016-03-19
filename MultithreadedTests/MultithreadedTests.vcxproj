@@ -74,6 +74,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>precompile.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>precompile.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -84,6 +87,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>precompile.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>precompile.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -96,6 +102,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>precompile.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>precompile.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -110,6 +119,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>precompile.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>precompile.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -120,17 +132,29 @@
   <ItemGroup>
     <ClCompile Include="bounded_iterations.cpp" />
     <ClCompile Include="environment_handle.cpp" />
-    <ClCompile Include="event_handel.cpp" />
+    <ClCompile Include="event_handle.cpp" />
     <ClCompile Include="file_builder.cpp" />
     <ClCompile Include="log_pool_thread_results.cpp" />
+    <ClCompile Include="log_thread_contention_results.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="multi_threaded_work.cpp" />
     <ClCompile Include="muti_thread_test_utils.cpp" />
     <ClCompile Include="pool_thread_tests.cpp" />
+    <ClCompile Include="precompile.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="test_thread_factory.cpp" />
     <ClCompile Include="thread_class_tests.cpp" />
+    <ClCompile Include="thread_comparison_with_contention.cpp" />
+    <ClCompile Include="thread_contention_format.cpp" />
+    <ClCompile Include="thread_contention_handle.cpp" />
     <ClCompile Include="thread_environment.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="background_worker.h" />
     <ClInclude Include="bounded_iterations.h" />
     <ClInclude Include="environment_handle.h" />
     <ClInclude Include="event_handle.h" />
@@ -138,13 +162,21 @@
     <ClInclude Include="handle_traits.h" />
     <ClInclude Include="i_log_results.h" />
     <ClInclude Include="i_test_threads.h" />
+    <ClInclude Include="i_test_thread_factory.h" />
     <ClInclude Include="log_pool_thread_results.h" />
     <ClInclude Include="multi_threaded_work.h" />
     <ClInclude Include="multi_thread_test_utils.h" />
     <ClInclude Include="pool_thread_tests.h" />
+    <ClInclude Include="precompile.h" />
     <ClInclude Include="p_log_results.h" />
     <ClInclude Include="p_test_threads.h" />
+    <ClInclude Include="p_test_thread_factory.h" />
+    <ClInclude Include="test_thread_factory.h" />
     <ClInclude Include="thread_class_tests.h" />
+    <ClInclude Include="thread_comparison_with_contention.h" />
+    <ClInclude Include="log_thread_contention_results.h" />
+    <ClInclude Include="thread_contention_format.h" />
+    <ClInclude Include="thread_contention_handle.h" />
     <ClInclude Include="thread_environment.h" />
     <ClInclude Include="time_something.h" />
     <ClInclude Include="Trace.h" />

@@ -12,5 +12,5 @@ public:
 
 	auto work() const noexcept -> int;
 
-	auto iterations() const noexcept->bounded_iterations;
+	auto iterations() const noexcept -> bounded_iterations;
 };

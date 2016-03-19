@@ -1,7 +1,4 @@
 #include "event_handle.h"
-#include "Trace.h"
-
-#include <memory>
 
 namespace multi_threading
 {

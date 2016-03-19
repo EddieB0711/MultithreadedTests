@@ -1,43 +1,29 @@
 #pragma once
 
 #include <stdio.h>
-#include <Windows.h>
 #include <crtdbg.h>
 
 #define ASSERT _ASSERTE
 
 #ifdef _DEBUG
-inline auto Trace(wchar_t const * format, ...) -> void
-{
-	va_list args;
-	va_start(args, format);
-
-	wchar_t buffer[256];
-
-	ASSERT(-1 != _vsnwprintf_s(buffer,
-							   _countof(buffer) - 1,
-							   format,
-							   args));
-
-	va_end(args);
-
-	OutputDebugString(buffer);
-}
-
 struct Tracer
 {
 	char const * m_filename;
 	unsigned m_line;
+	std::wstring m_line_ending;
 
-	Tracer(char const * filename, unsigned const line) :
+	Tracer(char const * filename, unsigned const line, wchar_t const * line_ending) :
 		m_filename { filename },
-		m_line { line }
+		m_line { line },
+		m_line_ending { line_ending }
 	{}
 
 	template <typename... Args>
 	auto operator()(wchar_t const * format, Args... args) const -> void
 	{
 		wchar_t buffer[256];
+		auto formatted_text = std::wstring { format };
+		formatted_text += m_line_ending;
 
 		auto count = swprintf_s(buffer,
 								L"%S(%d): ",
@@ -49,7 +35,7 @@ struct Tracer
 		ASSERT(-1 != _snwprintf_s(buffer + count,
 						          _countof(buffer) - count,
 							      _countof(buffer) - count - 1,
-							      format,
+							      formatted_text.c_str(),
 							      args...));
 
 		OutputDebugString(buffer);
@@ -58,7 +44,9 @@ struct Tracer
 #endif
 
 #ifdef _DEBUG
-#define TRACE Tracer(__FILE__, __LINE__)
+#define TRACE Tracer(__FILE__, __LINE__, L"")
+#define TRACE_LINE Tracer(__FILE__, __LINE__, L"\n")
 #else
 #define TRACE __noop
+#define TRACE_LINE __noop
 #endif

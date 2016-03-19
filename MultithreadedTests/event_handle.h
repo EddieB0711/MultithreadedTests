@@ -22,7 +22,7 @@ namespace multi_threading
 
 		event_handle(event_handle && other) noexcept;
 
-		auto operator =(event_handle && other) noexcept->event_handle &;
+		auto operator =(event_handle && other) noexcept -> event_handle &;
 
 		auto set() noexcept -> void;
 
@@ -30,6 +30,6 @@ namespace multi_threading
 
 		auto wait(DWORD const milliseconds = INFINITE) noexcept -> bool;
 
-		auto get() const noexcept->HANDLE;
+		auto get() const noexcept -> HANDLE;
 	};
 }

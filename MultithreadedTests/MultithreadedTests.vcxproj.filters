@@ -20,9 +20,6 @@
     <ClCompile Include="thread_environment.cpp">
       <Filter>multi_threaded_handles</Filter>
     </ClCompile>
-    <ClCompile Include="event_handel.cpp">
-      <Filter>multi_threaded_handles</Filter>
-    </ClCompile>
     <ClCompile Include="muti_thread_test_utils.cpp">
       <Filter>multi_thread_test_utils</Filter>
     </ClCompile>
@@ -31,6 +28,25 @@
     </ClCompile>
     <ClCompile Include="thread_class_tests.cpp">
       <Filter>test_threads\concrete\thread_class</Filter>
+    </ClCompile>
+    <ClCompile Include="thread_comparison_with_contention.cpp">
+      <Filter>test_threads\concrete\compare_thread_impls\with_contention</Filter>
+    </ClCompile>
+    <ClCompile Include="log_thread_contention_results.cpp">
+      <Filter>result_loggers\concrete\thread_contention</Filter>
+    </ClCompile>
+    <ClCompile Include="thread_contention_handle.cpp">
+      <Filter>result_loggers\concrete\thread_contention</Filter>
+    </ClCompile>
+    <ClCompile Include="thread_contention_format.cpp">
+      <Filter>result_loggers\concrete\thread_contention</Filter>
+    </ClCompile>
+    <ClCompile Include="precompile.cpp" />
+    <ClCompile Include="event_handle.cpp">
+      <Filter>multi_threaded_handles</Filter>
+    </ClCompile>
+    <ClCompile Include="test_thread_factory.cpp">
+      <Filter>test_threads\factories\concrete</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +100,31 @@
     <ClInclude Include="thread_class_tests.h">
       <Filter>test_threads\concrete\thread_class</Filter>
     </ClInclude>
+    <ClInclude Include="background_worker.h">
+      <Filter>background_worker</Filter>
+    </ClInclude>
+    <ClInclude Include="thread_comparison_with_contention.h">
+      <Filter>test_threads\concrete\compare_thread_impls\with_contention</Filter>
+    </ClInclude>
+    <ClInclude Include="log_thread_contention_results.h">
+      <Filter>result_loggers\concrete\thread_contention</Filter>
+    </ClInclude>
+    <ClInclude Include="thread_contention_handle.h">
+      <Filter>result_loggers\concrete\thread_contention</Filter>
+    </ClInclude>
+    <ClInclude Include="thread_contention_format.h">
+      <Filter>result_loggers\concrete\thread_contention</Filter>
+    </ClInclude>
+    <ClInclude Include="precompile.h" />
+    <ClInclude Include="i_test_thread_factory.h">
+      <Filter>test_threads\factories\abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="p_test_thread_factory.h">
+      <Filter>test_threads\factories\abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="test_thread_factory.h">
+      <Filter>test_threads\factories\concrete</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="bounded_iterations">
@@ -127,6 +168,27 @@
     </Filter>
     <Filter Include="test_threads\concrete\thread_class">
       <UniqueIdentifier>{6ad42416-630f-42e8-aa09-9313af8c3133}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="background_worker">
+      <UniqueIdentifier>{d5d03ef6-3ea9-4c86-897b-87668ca914a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test_threads\concrete\compare_thread_impls">
+      <UniqueIdentifier>{d81463b9-824f-406a-a7e7-168710136ede}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test_threads\concrete\compare_thread_impls\with_contention">
+      <UniqueIdentifier>{137d6da1-86f9-40b1-b0c9-2bb339d59ef8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="result_loggers\concrete\thread_contention">
+      <UniqueIdentifier>{503b8259-f675-4fb4-917a-83099e9ab319}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test_threads\factories">
+      <UniqueIdentifier>{eb4c87e9-41e9-4467-ac2b-e01fc636c84a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test_threads\factories\abstract">
+      <UniqueIdentifier>{fcdac5d7-3b7a-47d8-9b7f-c17680b1a78d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test_threads\factories\concrete">
+      <UniqueIdentifier>{c9516f5f-f249-4b38-8e2b-95b1092c9b83}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

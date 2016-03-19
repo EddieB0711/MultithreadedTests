@@ -11,5 +11,5 @@ auto get_optimal_threads() noexcept -> DWORD
 
 auto test_iterations() -> std::vector<int>
 {
-	return std::vector<int> { 25, 50, 75, 100 }; // amount of work each iteration should do.
+	return std::vector<int> { 25, 50/*, 75, 100*/ };
 }
