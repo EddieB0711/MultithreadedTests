@@ -1,19 +1,16 @@
 #include "log_pool_thread_results.h"
 #include "file_builder.h"
 
-log_pool_thread_results::log_pool_thread_results(std::string const & file) noexcept :
-	m_file { file }
+log_pool_thread_results::log_pool_thread_results(std::string const & file, std::string const & header) noexcept :
+	m_file { file },
+	m_header { header }
 {}
 
-auto log_pool_thread_results::log_results(unsigned long long iterations, std::vector<float> const & durations) const -> void
+auto log_pool_thread_results::log_results(std::map<unsigned long long, float> const & results) const -> void
 {
-	auto && builder = file_builder { m_file };
+	auto builder = std::make_shared<file_builder>(m_file);
 
-	builder.append(iterations);
+	builder->append_with_new_line(m_header);
 
-	for (auto & iter = durations.begin(); iter != durations.end(); ++iter)
-	{
-		if (iter + 1 != durations.end()) builder.append(*iter);
-		else builder.append(*iter, false).append("\n", false);
-	}
+	for (auto result : results) builder->append_with_separator(result.first)->append_with_new_line(result.second);
 }

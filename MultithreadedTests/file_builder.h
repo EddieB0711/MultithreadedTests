@@ -1,6 +1,5 @@
 #pragma once
 
-#include <string>
 #include <fstream>
 
 class file_builder
@@ -16,11 +15,23 @@ public:
 	~file_builder() noexcept;
 
 	template <typename T>
-	auto append(T const & value, bool with_seperator = true) noexcept -> file_builder &
+	auto append(T const & value) noexcept -> file_builder *
 	{
 		m_file << value;
-		if (with_seperator) m_file << ", ";
+		return this;
+	}
 
-		return *this;
+	template <typename T>
+	auto append_with_separator(T const & value) noexcept -> file_builder *
+	{
+		m_file << value << ", ";
+		return this;
+	}
+
+	template <typename T>
+	auto append_with_new_line(T const & value) noexcept -> file_builder *
+	{
+		m_file << value << "\n";
+		return this;
 	}
 };
